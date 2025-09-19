@@ -8,7 +8,7 @@ export function h(tag, props = {}, children) {
 }
 
 export function mount(vnode, container) {
-  const element = document.createElement(vnode.tag);
+  const element = createElement(vnode.tag);
   vnode.element = element;
 
   for (const [name, value] of Object.entries(vnode.props || {})) {
@@ -137,6 +137,72 @@ function proxify(object, handler) {
     object[key] = proxify(object[key], handler);
   }
   return new Proxy(object, handler);
+}
+
+function createElement(tagName) {
+  const svgElements = [
+    'svg',
+    'g',
+    'defs',
+    'symbol',
+    'use',
+    'marker',
+    'pattern',
+    'mask',
+    'clipPath',
+    'foreignObject',
+    'switch',
+    'circle',
+    'ellipse',
+    'line',
+    'rect',
+    'polygon',
+    'polyline',
+    'path',
+    'image',
+    'use',
+    'text',
+    'tspan',
+    'tref',
+    'textPath',
+    'title',
+    'desc',
+    'metadata',
+    'linearGradient',
+    'radialGradient',
+    'meshGradient',
+    'stop',
+    'filter',
+    'feBlend',
+    'feColorMatrix',
+    'feComponentTransfer',
+    'feComposite',
+    'feConvolveMatrix',
+    'feDiffuseLighting',
+    'feDisplacementMap',
+    'feDropShadow',
+    'feFlood',
+    'feGaussianBlur',
+    'feImage',
+    'feMerge',
+    'feMergeNode',
+    'feMorphology',
+    'feOffset',
+    'feSpecularLighting',
+    'feTile',
+    'feTurbulence',
+    'animate',
+    'animateMotion',
+    'animateTransform',
+    'set',
+    'mpath',
+    'cursor',
+    'view',
+  ];
+  if (svgElements.includes(tagName)) {
+    return document.createElementNS('http://www.w3.org/2000/svg', tagName);
+  }
+  return document.createElement(tagName);
 }
 
 function setProp(element, name, value, oldValue) {

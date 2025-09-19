@@ -20,6 +20,10 @@ export class HashRouter {
     return this.#pathname.value;
   }
 
+  redirect(path) {
+    window.location.hash = path;
+  }
+
   getParams() {
     const currentRoute = this.#routes.find((route) =>
       matches(route.path, this.#pathname.value),

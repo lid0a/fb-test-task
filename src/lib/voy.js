@@ -8,6 +8,10 @@ export function h(tag, props = {}, children) {
 }
 
 export function mount(vnode, container) {
+  if (!vnode) {
+    return;
+  }
+
   const element = createElement(vnode.tag);
   vnode.element = element;
 
@@ -33,6 +37,10 @@ export function unmount(vnode) {
 }
 
 export function patch(oldVnode, newVnode) {
+  if (!oldVnode || !newVnode) {
+    return;
+  }
+
   const element = oldVnode.element;
   newVnode.element = element;
 

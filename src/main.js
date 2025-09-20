@@ -4,11 +4,12 @@ import { h, watchEffect, mount, patch } from '~/lib/voy';
 import { Switch } from '~/lib/router';
 import { Sidebar } from '~/ui/shared/sidebar';
 import { router } from '~/router';
+import { Header } from '~/ui/shared/header';
 
 function App() {
   return h('div', { className: 'app' }, [
     Sidebar(),
-    h('header', { className: 'header' }, []),
+    Header(),
     h('main', { className: 'main' }, [Switch({ router })]),
   ]);
 }

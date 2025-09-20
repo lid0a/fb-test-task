@@ -2,6 +2,7 @@ import { h } from '~/lib/voy';
 import { router } from '~/router';
 import { clsx } from '~/utils/clsx';
 import { Icon } from '~/ui/shared/icon';
+import { Button } from '~/ui/shared/button';
 
 const links = [
   {
@@ -69,5 +70,12 @@ export function Sidebar() {
         ),
       ),
     ),
+    h('div', { className: 'sidebar-footer' }, [
+      Button({
+        label: 'Logout',
+        'data-color': 'transparent',
+        startIcon: Icon({ width: 24, height: 24, name: 'logout' }),
+      }),
+    ]),
   ]);
 }

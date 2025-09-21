@@ -57,6 +57,12 @@
   --input-height: 3rem;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Nunito Sans', sans-serif;
   font-optical-sizing: auto;
@@ -71,6 +77,10 @@ body {
   min-height: 100dvh;
   color: var(--color-text-primary);
   display: grid;
+}
+
+::placeholder {
+  color: var(--color-text-secondary);
 }
 
 :where(button, input, a, select, textarea, area):focus-within {
@@ -102,6 +112,24 @@ body {
   position: absolute;
   bottom: var(--spacing-xl);
   z-index: 1;
+
+  & .support {
+    width: 100%;
+    aspect-ratio: var(--aspect-square);
+    padding: var(--spacing-md);
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--color-highlight);
+    border-radius: var(--radius-lg);
+    margin-block-end: var(--spacing-md);
+
+    & img {
+      margin-block-start: calc(-1 * var(--spacing-xl));
+      margin-block-end: var(--spacing-sm);
+    }
+  }
 }
 
 .logo {
@@ -156,13 +184,17 @@ body {
   padding-inline-start: var(--spacing-xl);
 }
 
-::placeholder {
-  color: var(--color-text-secondary);
+.subheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: var(--input-height);
 }
 
 .main {
   grid-area: main;
   padding-inline: var(--spacing-xl);
+  padding-block-start: var(--spacing-2xl);
 }
 
 .button {
@@ -314,7 +346,6 @@ body {
   }
 
   & > .dropdown-content {
-    box-sizing: border-box;
     position: absolute;
     top: calc(var(--input-height) + var(--spacing-sm));
     left: 0;
@@ -352,4 +383,10 @@ body {
     height: 100%;
     object-fit: cover;
   }
+}
+
+.page-title {
+  font-size: var(--text-4xl);
+  font-weight: var(--font-bold);
+  margin: 0;
 }

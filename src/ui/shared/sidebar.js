@@ -71,6 +71,22 @@ export function Sidebar() {
       ),
     ),
     h('div', { className: 'sidebar-footer' }, [
+      h(
+        'div',
+        {
+          className: 'support',
+        },
+        [
+          h('img', {
+            src: '/illustrations/support.svg',
+            alt: 'Support',
+          }),
+          Button({
+            label: 'support',
+            startIcon: Icon({ name: 'message', width: 24, height: 24 }),
+          }),
+        ],
+      ),
       Button({
         label: 'Logout',
         'data-color': 'transparent',

@@ -1,5 +1,10 @@
 import { h } from '~/lib/voy';
+import { Subheader } from '~/ui/shared/subheader';
 
 export function NotFoundPage() {
-  return h('h1', null, 'Page not found');
+  return h('div', null, [
+    Subheader({
+      pageTitle: 'Page not found',
+    }),
+  ]);
 }

@@ -1,5 +1,10 @@
 import { h } from '~/lib/voy';
+import { Subheader } from '~/ui/shared/subheader';
 
 export function InfoPage() {
-  return h('h1', null, 'Info Portal');
+  return h('div', null, [
+    Subheader({
+      pageTitle: 'Info Portal',
+    }),
+  ]);
 }

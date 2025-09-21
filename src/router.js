@@ -2,11 +2,16 @@ import { HashRouter } from '~/lib/router';
 import { HomePage } from '~/pages/home';
 import { InfoPage } from '~/pages/info';
 import { NotFoundPage } from '~/pages/not-found';
+import { ProjectsPage } from '~/pages/projects';
 
 const routes = [
   {
     path: '/',
     component: HomePage,
+  },
+  {
+    path: '/projects',
+    component: ProjectsPage,
   },
   {
     path: '/info',

@@ -3,15 +3,14 @@ import { Subheader } from '~/ui/shared/subheader';
 import { Button } from '~/ui/shared/button';
 import { Icon } from '~/ui/shared/icon';
 
-export function HomePage() {
+export function ProjectsPage() {
   return h('div', null, [
     Subheader({
-      pageTitle: 'Dashboard',
+      pageTitle: 'Projects',
       actions: [
         Button({
-          label: 'Nov 16, 2020 - Dec 16, 2020',
-          'data-color': 'neutral',
-          startIcon: Icon({ name: 'calendar', width: 24, height: 24 }),
+          label: 'Add Project',
+          startIcon: Icon({ name: 'plus', width: 24, height: 24 }),
         }),
       ],
     }),

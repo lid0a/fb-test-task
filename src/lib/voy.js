@@ -115,7 +115,7 @@ export function observable(value) {
     }
   }
 
-  return new proxify(
+  return proxify(
     { value },
     {
       get(target, prop, receiver) {
@@ -138,7 +138,7 @@ export function watchEffect(effect) {
 }
 
 function proxify(object, handler) {
-  if (typeof object !== 'object') {
+  if (typeof object !== 'object' || object === null) {
     return object;
   }
   for (const key in object) {

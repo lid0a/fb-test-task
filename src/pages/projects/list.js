@@ -1,13 +1,12 @@
 import { h } from '~/lib/voy';
 import { Subheader } from '~/ui/shared/subheader';
 import { Icon } from '~/ui/shared/icon';
+import { IconButton } from '~/ui/shared/icon-button';
 import { LinkButton } from '~/ui/shared/link-button';
 import { db } from '~/db';
 
-const projects = db.getProjects();
-console.log(projects);
-
 export function ProjectsPage() {
+  const projects = db.getProjects();
   return h('div', null, [
     Subheader({
       pageTitle: 'Projects',
@@ -19,14 +18,36 @@ export function ProjectsPage() {
         }),
       ],
     }),
-    // h(
-    //   'ul',
-    //   null,
-    //   projects.map((project) =>
-    //     h('li', null, [
-    //       h('a', { href: `#/projects/${project.id}` }, project.name),
-    //     ]),
-    //   ),
-    // ),
+    h(
+      'ul',
+      null,
+      projects.map((project) =>
+        h(
+          'li',
+          {
+            style: {
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              marginBlockStart: 'var(--spacing-md)',
+            },
+          },
+          [
+            h('a', { href: `#/projects/${project.id}` }, project.name),
+            IconButton({
+              icon: Icon({
+                name: 'trash',
+                width: 24,
+                height: 24,
+              }),
+              'data-color': 'red',
+              onClick() {
+                db.deleteProject(project.id);
+              },
+            }),
+          ],
+        ),
+      ),
+    ),
   ]);
 }

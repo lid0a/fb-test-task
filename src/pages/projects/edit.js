@@ -3,15 +3,16 @@ import { Subheader } from '~/ui/shared/subheader';
 import { ProjectForm } from '~/ui/projects/form';
 import { db } from '~/db';
 
-export function AddProjectPage() {
+export function EditProjectPage({ params }) {
+  const project = db.getProject(params.id);
   return h('div', null, [
     Subheader({
-      pageTitle: 'Add project',
+      pageTitle: 'Edit project',
     }),
     ProjectForm({
-      onSubmit(data, event) {
-        db.createProject(data);
-        event.target.reset();
+      initialValues: project,
+      onSubmit(data) {
+        db.updateProject(project.id, data);
       },
     }),
   ]);

@@ -272,6 +272,11 @@ body {
     color: var(--color-text-primary);
   }
 
+  &[data-color='red'] {
+    --bg-color: var(--color-error);
+    color: var(--color-text-light);
+  }
+
   &[data-color='transparent'] {
     --bg-color: transparent;
     color: var(--color-text-secondary);

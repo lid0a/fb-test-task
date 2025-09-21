@@ -50,7 +50,8 @@ export function Switch({ router }) {
   const routes = router.getRoutes();
   for (const route of routes) {
     if (matches(route.path, router.getPathname())) {
-      return route.component();
+      const params = router.getParams();
+      return route.component({ route, params });
     }
   }
   return routes.find((route) => route.path === '*')?.component() ?? null;
@@ -69,6 +70,9 @@ function matches(pattern, path) {
     if (segment !== path.split('/')[i]) {
       return false;
     }
+  }
+  if (!pattern.includes(':')) {
+    return path === pattern;
   }
   return true;
 }

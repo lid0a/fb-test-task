@@ -4,6 +4,7 @@ import { InfoPage } from '~/pages/info';
 import { NotFoundPage } from '~/pages/not-found';
 import { ProjectsPage } from '~/pages/projects/list';
 import { AddProjectPage } from '~/pages/projects/add';
+import { EditProjectPage } from '~/pages/projects/edit';
 
 const routes = [
   {
@@ -11,12 +12,16 @@ const routes = [
     component: HomePage,
   },
   {
+    path: '/projects',
+    component: ProjectsPage,
+  },
+  {
     path: '/projects/add',
     component: AddProjectPage,
   },
   {
-    path: '/projects',
-    component: ProjectsPage,
+    path: '/projects/:id',
+    component: EditProjectPage,
   },
   {
     path: '/info',

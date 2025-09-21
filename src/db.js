@@ -23,7 +23,7 @@ export class DB {
     return this.#name;
   }
 
-  createProject({ name, description, startDate, endDate, priority, image }) {
+  createProject({ name, description, startDate, endDate, priority }) {
     const project = {
       id: crypto.randomUUID(),
       name,
@@ -31,7 +31,6 @@ export class DB {
       startDate,
       endDate,
       priority,
-      image,
       tasks: [],
       createdAt: Date.now(),
       updatedAt: null,

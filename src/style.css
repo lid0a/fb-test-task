@@ -341,6 +341,68 @@ body {
   }
 }
 
+.textarea {
+  position: relative;
+  overflow: hidden;
+  min-height: 7.5rem;
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  display: block;
+  width: 100%;
+  padding: var(--spacing-md);
+  resize: vertical;
+}
+
+.select {
+  &,
+  &::picker(select) {
+    appearance: base-select;
+  }
+
+  &::picker(select) {
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+  }
+
+  &::picker-icon {
+    content: '';
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url('/icons/chevron-down.svg');
+  }
+
+  display: block;
+  width: 100%;
+  padding-inline: var(--spacing-md);
+  align-items: center;
+
+  & button {
+    color: var(--color-text-light);
+
+    & selectedcontent {
+      color: var(--color-text-primary);
+    }
+  }
+
+  & option {
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-md);
+    line-height: var(--text-base--line-height);
+    cursor: pointer;
+    outline: none;
+
+    &::checkmark {
+      display: none;
+    }
+
+    &:where(:hover, :checked) {
+      background-color: var(--color-highlight);
+    }
+  }
+}
+
 .dropdown {
   position: relative;
 

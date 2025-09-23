@@ -1,9 +1,9 @@
 import { h } from '~/lib/voy';
 import { Input } from '~/ui/shared/input';
-import { Label } from '~/ui/shared/label';
 import { Button } from '~/ui/shared/button';
 import { Textarea } from '../shared/textarea';
 import { Select } from '../shared/select';
+import { FormGroup } from '../shared/form-group';
 
 export function ProjectForm({ initialValues = {}, onSubmit = () => {} } = {}) {
   return h(
@@ -26,39 +26,43 @@ export function ProjectForm({ initialValues = {}, onSubmit = () => {} } = {}) {
       },
     },
     [
-      h('div', { style: { marginBlockStart: 'var(--spacing-md)' } }, [
-        Label({ title: 'Project Name', for: 'name' }),
-        Input({
+      FormGroup({
+        id: 'name',
+        label: 'Project Name',
+        field: Input({
           id: 'name',
           name: 'name',
           required: true,
           placeholder: 'Project Name',
           value: initialValues.name,
         }),
-      ]),
-      h('div', { style: { marginBlockStart: 'var(--spacing-md)' } }, [
-        Label({ title: 'Starts', for: 'startDate' }),
-        Input({
+      }),
+      FormGroup({
+        id: 'startDate',
+        label: 'Starts',
+        field: Input({
           type: 'date',
           id: 'startDate',
           name: 'startDate',
           required: true,
           value: initialValues.startDate,
         }),
-      ]),
-      h('div', { style: { marginBlockStart: 'var(--spacing-md)' } }, [
-        Label({ title: 'Deadline', for: 'endDate' }),
-        Input({
+      }),
+      FormGroup({
+        id: 'endDate',
+        label: 'Deadline',
+        field: Input({
           type: 'date',
           id: 'endDate',
           name: 'endDate',
           required: true,
           value: initialValues.endDate,
         }),
-      ]),
-      h('div', { style: { marginBlockStart: 'var(--spacing-md)' } }, [
-        Label({ title: 'Priority', for: 'priority' }),
-        Select({
+      }),
+      FormGroup({
+        id: 'priority',
+        label: 'Priority',
+        field: Select({
           id: 'priority',
           name: 'priority',
           required: true,
@@ -69,20 +73,18 @@ export function ProjectForm({ initialValues = {}, onSubmit = () => {} } = {}) {
             { label: 'High', value: 'high' },
           ],
         }),
-      ]),
-      h('div', { style: { marginBlockStart: 'var(--spacing-md)' } }, [
-        Label({ title: 'Description', for: 'description' }),
-        Textarea({
+      }),
+      FormGroup({
+        id: 'description',
+        label: 'description',
+        field: Textarea({
           id: 'description',
           name: 'description',
           required: true,
           value: initialValues.description,
         }),
-      ]),
-      Button({
-        label: 'Save Project',
-        style: { marginBlockStart: 'var(--spacing-md)' },
       }),
+      Button({ label: 'Save Project' }),
     ],
   );
 }

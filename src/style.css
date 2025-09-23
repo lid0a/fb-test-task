@@ -397,7 +397,7 @@ body {
       display: none;
     }
 
-    &:where(:hover, :checked) {
+    &:where(:hover, :checked, :focus) {
       background-color: var(--color-highlight);
     }
   }
@@ -440,12 +440,16 @@ body {
   }
 }
 
-.label {
-  font-size: var(--text-sm);
-  font-weight: var(--font-bold);
-  color: var(--color-text-secondary);
-  margin-block-end: var(--spacing-xs);
-  display: inline-block;
+.form-group {
+  margin-block: var(--spacing-md);
+
+  & label {
+    font-size: var(--text-sm);
+    font-weight: var(--font-bold);
+    color: var(--color-text-secondary);
+    margin-block-end: var(--spacing-xs);
+    display: inline-block;
+  }
 }
 
 .avatar {

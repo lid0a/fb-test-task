@@ -5,8 +5,9 @@ import { NotFoundPage } from '~/pages/not-found';
 import { ProjectsPage } from '~/pages/projects/list';
 import { AddProjectPage } from '~/pages/projects/add';
 import { EditProjectPage } from '~/pages/projects/edit';
+import { SignInPage } from '~/pages/signin';
 
-const routes = [
+const authenticatedRoutes = [
   {
     path: '/',
     component: HomePage,
@@ -33,4 +34,13 @@ const routes = [
   },
 ];
 
-export const router = new HashRouter(routes);
+const unauthenticatedRoutes = [
+  {
+    path: '/signin',
+    component: SignInPage,
+  },
+];
+
+export const authenticatedRouter = new HashRouter(authenticatedRoutes);
+
+export const unauthenticatedRouter = new HashRouter(unauthenticatedRoutes);

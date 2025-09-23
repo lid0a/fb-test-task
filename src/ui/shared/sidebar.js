@@ -1,5 +1,5 @@
 import { h } from '~/lib/voy';
-import { router } from '~/router';
+import { authenticatedRouter } from '~/router';
 import { clsx } from '~/utils/clsx';
 import { Icon } from '~/ui/shared/icon';
 import { Button } from '~/ui/shared/button';
@@ -43,7 +43,7 @@ const links = [
 ];
 
 export function Sidebar() {
-  const pathname = router.getPathname();
+  const pathname = authenticatedRouter.getPathname();
 
   return h('nav', { className: 'sidebar' }, [
     h('a', { href: '#/', className: 'logo' }, [

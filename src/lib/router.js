@@ -21,7 +21,7 @@ export class HashRouter {
   }
 
   redirect(path) {
-    window.location.hash = path;
+    window.location.hash = `#${path}`;
   }
 
   getParams() {

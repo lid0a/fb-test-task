@@ -8,7 +8,11 @@ export function Select({ options = [], className, ...selectProps } = {}) {
     [
       h('button', {}, [h('selectedcontent', null)]),
       ...options.map((option) =>
-        h('option', { value: option.value }, option.label),
+        h(
+          'option',
+          { value: option.value, selected: option.value === selectProps.value },
+          option.label,
+        ),
       ),
     ],
   );

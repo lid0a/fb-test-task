@@ -76,7 +76,7 @@ export function ProjectForm({ initialValues = {}, onSubmit = () => {} } = {}) {
       }),
       FormGroup({
         id: 'description',
-        label: 'description',
+        label: 'Description',
         field: Textarea({
           id: 'description',
           name: 'description',

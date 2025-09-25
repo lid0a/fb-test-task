@@ -1,8 +1,9 @@
 import { h } from '~/lib/voy';
-import { authenticatedRouter } from '~/router';
+import { router } from '~/router';
 import { clsx } from '~/utils/clsx';
 import { Icon } from '~/ui/shared/icon';
 import { Button } from '~/ui/shared/button';
+import { signOut } from '~/api/auth';
 
 const links = [
   {
@@ -43,7 +44,7 @@ const links = [
 ];
 
 export function Sidebar() {
-  const pathname = authenticatedRouter.getPathname();
+  const pathname = router.getPathname();
 
   return h('nav', { className: 'sidebar' }, [
     h('a', { href: '#/', className: 'logo' }, [
@@ -91,6 +92,9 @@ export function Sidebar() {
         label: 'Logout',
         'data-color': 'transparent',
         startIcon: Icon({ width: 24, height: 24, name: 'logout' }),
+        onClick() {
+          signOut();
+        },
       }),
     ]),
   ]);

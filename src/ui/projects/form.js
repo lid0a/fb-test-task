@@ -1,9 +1,9 @@
 import { h } from '~/lib/voy';
 import { Input } from '~/ui/shared/input';
 import { Button } from '~/ui/shared/button';
-import { Textarea } from '../shared/textarea';
-import { Select } from '../shared/select';
-import { FormGroup } from '../shared/form-group';
+import { Textarea } from '~/ui/shared/textarea';
+import { Select } from '~/ui/shared/select';
+import { FormGroup } from '~/ui/shared/form-group';
 
 export function ProjectForm({ initialValues = {}, onSubmit = () => {} } = {}) {
   return h(

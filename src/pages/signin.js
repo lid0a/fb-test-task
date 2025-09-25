@@ -3,6 +3,9 @@ import { Button } from '~/ui/shared/button';
 import { Input } from '~/ui/shared/input';
 import { Icon } from '~/ui/shared/icon';
 import { FormGroup } from '~/ui/shared/form-group';
+import { signIn } from '~/api/auth';
+import { router } from '~/router';
+import { Checkbox } from '~/ui/shared/checkbox';
 
 export function SignInPage() {
   return h(
@@ -23,18 +26,45 @@ export function SignInPage() {
         {
           onSubmit(event) {
             event.preventDefault();
+            const { email, password, rememberMe } = event.target;
+            const success = signIn({
+              email: email.value,
+              password: password.value,
+              rememberMe: rememberMe.checked,
+            });
+            if (success) {
+              router.redirect('/');
+            }
           },
         },
         [
           FormGroup({
             id: 'email',
             label: 'Email Address',
-            field: Input({ id: 'email', type: 'email', required: true }),
+            field: Input({
+              id: 'email',
+              name: 'email',
+              type: 'email',
+              required: true,
+            }),
           }),
           FormGroup({
             id: 'password',
             label: 'Password',
-            field: Input({ id: 'password', type: 'password', required: true }),
+            field: Input({
+              id: 'password',
+              name: 'password',
+              type: 'password',
+              required: true,
+            }),
+          }),
+          Checkbox({
+            id: 'rememberMe',
+            name: 'rememberMe',
+            label: 'Remember me',
+            style: {
+              marginBlock: 'var(--spacing-md)',
+            },
           }),
           Button({
             label: 'Sign In',

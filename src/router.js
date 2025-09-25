@@ -1,13 +1,12 @@
 import { HashRouter } from '~/lib/router';
 import { HomePage } from '~/pages/home';
-import { InfoPage } from '~/pages/info';
-import { NotFoundPage } from '~/pages/not-found';
 import { ProjectsPage } from '~/pages/projects/list';
 import { AddProjectPage } from '~/pages/projects/add';
 import { EditProjectPage } from '~/pages/projects/edit';
-import { SignInPage } from '~/pages/signin';
+import { InfoPage } from '~/pages/info';
+import { NotFoundPage } from '~/pages/not-found';
 
-const authenticatedRoutes = [
+const routes = [
   {
     path: '/',
     component: HomePage,
@@ -34,13 +33,4 @@ const authenticatedRoutes = [
   },
 ];
 
-const unauthenticatedRoutes = [
-  {
-    path: '/signin',
-    component: SignInPage,
-  },
-];
-
-export const authenticatedRouter = new HashRouter(authenticatedRoutes);
-
-export const unauthenticatedRouter = new HashRouter(unauthenticatedRoutes);
+export const router = new HashRouter(routes);

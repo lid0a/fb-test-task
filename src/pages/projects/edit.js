@@ -1,10 +1,10 @@
 import { h } from '~/lib/voy';
 import { Subheader } from '~/ui/shared/subheader';
 import { ProjectForm } from '~/ui/projects/form';
-import { db } from '~/db';
+import { getProject, updateProject } from '~/api/projects';
 
 export function EditProjectPage({ params }) {
-  const project = db.getProject(params.id);
+  const project = getProject(params.id);
   return h('div', null, [
     Subheader({
       pageTitle: 'Edit project',
@@ -12,7 +12,7 @@ export function EditProjectPage({ params }) {
     ProjectForm({
       initialValues: project,
       onSubmit(data) {
-        db.updateProject(project.id, data);
+        updateProject(project.id, data);
       },
     }),
   ]);

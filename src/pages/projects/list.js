@@ -3,10 +3,10 @@ import { Subheader } from '~/ui/shared/subheader';
 import { Icon } from '~/ui/shared/icon';
 import { IconButton } from '~/ui/shared/icon-button';
 import { LinkButton } from '~/ui/shared/link-button';
-import { db } from '~/db';
+import { getProjects, deleteProject } from '~/api/projects';
 
 export function ProjectsPage() {
-  const projects = db.getProjects();
+  const projects = getProjects();
   return h('div', null, [
     Subheader({
       pageTitle: 'Projects',
@@ -42,7 +42,7 @@ export function ProjectsPage() {
               }),
               'data-color': 'red',
               onClick() {
-                db.deleteProject(project.id);
+                deleteProject(project.id);
               },
             }),
           ],

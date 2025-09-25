@@ -1,7 +1,7 @@
 import { h } from '~/lib/voy';
 import { Subheader } from '~/ui/shared/subheader';
 import { ProjectForm } from '~/ui/projects/form';
-import { db } from '~/db';
+import { createProject } from '~/api/projects';
 
 export function AddProjectPage() {
   return h('div', null, [
@@ -10,7 +10,7 @@ export function AddProjectPage() {
     }),
     ProjectForm({
       onSubmit(data, event) {
-        db.createProject(data);
+        createProject(data);
         event.target.reset();
       },
     }),

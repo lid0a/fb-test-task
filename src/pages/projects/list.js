@@ -1,8 +1,8 @@
 import { h } from '~/lib/voy';
 import { Subheader } from '~/ui/shared/subheader';
-import { Icon } from '~/ui/shared/icon';
-import { IconButton } from '~/ui/shared/icon-button';
-import { LinkButton } from '~/ui/shared/link-button';
+import { Icon } from '~/lib/ui-kit/icon';
+import { IconButton } from '~/lib/ui-kit/icon-button';
+import { LinkButton } from '~/lib/ui-kit/link-button';
 import { getProjects, deleteProject } from '~/api/projects';
 
 export function ProjectsPage() {

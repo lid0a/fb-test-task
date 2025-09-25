@@ -1,4 +1,5 @@
 import '~/normalize.css';
+import '~/lib/ui-kit/style.css';
 import '~/style.css';
 import { h, watchEffect, mount, patch } from '~/lib/voy';
 import { Switch } from '~/lib/router';

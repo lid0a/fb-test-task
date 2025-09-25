@@ -1,9 +1,9 @@
 import { h } from '~/lib/voy';
-import { Icon } from './icon';
-import { Input } from './input';
-import { IconButton } from './icon-button';
-import { Dropdown, DropdownTrigger } from './dropdown';
-import { Avatar } from './avatar';
+import { Icon } from '~/lib/ui-kit/icon';
+import { Input } from '~/lib/ui-kit/input';
+import { IconButton } from '~/lib/ui-kit/icon-button';
+import { Dropdown, DropdownTrigger } from '~/lib/ui-kit/dropdown';
+import { Avatar } from '~/lib/ui-kit/avatar';
 
 export function Header() {
   return h('header', { className: 'header' }, [

@@ -1,11 +1,11 @@
 import { h } from '~/lib/voy';
-import { Button } from '~/ui/shared/button';
-import { Input } from '~/ui/shared/input';
-import { Icon } from '~/ui/shared/icon';
-import { FormGroup } from '~/ui/shared/form-group';
+import { Button } from '~/lib/ui-kit/button';
+import { Input } from '~/lib/ui-kit/input';
+import { Icon } from '~/lib/ui-kit/icon';
+import { FormGroup } from '~/lib/ui-kit/form-group';
 import { signIn } from '~/api/auth';
 import { router } from '~/router';
-import { Checkbox } from '~/ui/shared/checkbox';
+import { Checkbox } from '~/lib/ui-kit/checkbox';
 
 export function SignInPage() {
   return h(

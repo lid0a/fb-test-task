@@ -1,7 +1,7 @@
 import { h } from '~/lib/voy';
 import { Subheader } from '~/ui/shared/subheader';
-import { Button } from '~/ui/shared/button';
-import { Icon } from '~/ui/shared/icon';
+import { Button } from '~/lib/ui-kit/button';
+import { Icon } from '~/lib/ui-kit/icon';
 
 export function HomePage() {
   return h('div', null, [

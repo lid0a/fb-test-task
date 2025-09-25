@@ -1,8 +1,8 @@
 import { h } from '~/lib/voy';
 import { router } from '~/router';
 import { clsx } from '~/utils/clsx';
-import { Icon } from '~/ui/shared/icon';
-import { Button } from '~/ui/shared/button';
+import { Icon } from '~/lib/ui-kit/icon';
+import { Button } from '~/lib/ui-kit/button';
 import { signOut } from '~/api/auth';
 
 const links = [
